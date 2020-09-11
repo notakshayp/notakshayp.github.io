@@ -1,0 +1,26 @@
+<div class="project">
+               <div class="projectName">
+                <h3>Project Name</h3>
+               </div>
+               <div class="projectDesc">
+                <div class="abstract">
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis libero numquam quis veritatis impedit velit consequuntur et. Pariatur deserunt ut, iure aperiam repellat officiis voluptatem, unde cumque eius quia ipsa.
+                </p>
+                </div>
+                <br>
+                <div class="codeNdemo">
+                    <a href="https://github.com/notakshayp">
+                        <i class="fa fa-desktop" style="font-size:3vw;color:white; margin: auto; width:auto;"></i>
+                </a>
+
+                <a href="https://github.com/notakshayp">
+                    <i class="fa fa-github" style="font-size:3vw;color:white; margin: auto; width:auto;"></i>
+            </a>
+                </div>
+                <div class="techstack">
+                    <i><p>html, css, js </p></i>
+                </div>
+
+               </div>    
+            </div>

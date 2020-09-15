@@ -17,6 +17,12 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
+.material-icons:hover{
+  background: -webkit-linear-gradient(rgb(12, 235, 255), rgb(63, 3, 133));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .fa:hover{
     background: -webkit-linear-gradient(rgb(12, 235, 255), rgb(63, 3, 133));
     -webkit-background-clip: text;
@@ -51,6 +57,15 @@ display: inline;
     display: flex;
 }
     .fa {
+        color:rgba(0, 0, 0, 0.582);
+        
+        margin: auto;
+        font-size: 7vh;
+        margin: 5%;
+        
+        align-self: center;
+      }
+      .material-icons{
         color:rgba(0, 0, 0, 0.582);
         
         margin: auto;
@@ -95,6 +110,15 @@ display: inline;
         font-size: 3vh;
     }
     .fa {
+        color:rgba(0, 0, 0, 0.582);
+        
+        margin: auto;
+        font-size: 5vh;
+        margin: 5%;
+        
+        align-self: center;
+      }
+      .material-icons{
         color:rgba(0, 0, 0, 0.582);
         
         margin: auto;

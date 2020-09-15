@@ -1,0 +1,138 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  padding: 2%;
+}
+.card{
+    margin: 0 auto;
+    width: 100%;
+    border: none;
+}
+
+.gradientText{
+    background: -webkit-linear-gradient(rgb(12, 235, 255), rgb(63, 3, 133));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.fa:hover{
+    background: -webkit-linear-gradient(rgb(12, 235, 255), rgb(63, 3, 133));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.social{
+width: fit-content;
+display: inline;
+}
+
+.project{
+    padding-top: 5%;
+}
+
+.card-body{
+    padding: 3%;
+}
+
+/* big screen*/
+@media only screen and (min-width: 601px) {
+    .card-title{
+        font-size: 6vh;
+    }
+    .card-subtitle{
+        font-size: 3vh;
+    }
+    .card-text{
+        font-size: 3vh;
+   
+    }
+.projects{
+    display: flex;
+}
+    .fa {
+        color:rgba(0, 0, 0, 0.582);
+        
+        margin: auto;
+        font-size: 7vh;
+        margin: 5%;
+        
+        align-self: center;
+      }
+.contentDiv {
+    height: fit-content;
+    align-self: center;
+   padding: 3%;
+  }
+
+  .lead{
+      word-wrap: normal;
+      width: 50%;
+      text-align: center;
+      margin: auto;
+  }
+
+  h2{
+      font-size: 8rem;
+      text-align: center;
+  }
+  h3{
+    font-weight: lighter; font-size: 5rem;
+    text-align: center;
+}
+
+  }
+/* small scren*/
+  @media only screen and (max-width: 600px) {
+    
+    .card-title{
+        font-size: 6vh;
+    }
+    .card-subtitle{
+        font-size: 3vh;
+    }
+    .card-text{
+        font-size: 3vh;
+    }
+    .fa {
+        color:rgba(0, 0, 0, 0.582);
+        
+        margin: auto;
+        font-size: 5vh;
+        margin: 5%;
+        
+        align-self: center;
+      }
+      .lead{
+        padding-top: 10%;
+      }
+    .contentDiv {
+        height: 90vh;
+        align-self: center;
+       padding: 3%;
+      }
+      h2{
+        font-size: 5rem;
+        
+    }
+   
+    h3{
+        font-weight: lighter; font-size: 3rem
+    }
+    .contentDiv div{
+    }
+  }
+
+
+.nav-link {
+  color:rgb(0, 0, 0)
+  font: 1.5rem sans-serif;
+  font-weight: bolder;
+}
+
+a{
+    color: black;
+}
+ul {
+  margin: auto;
+}

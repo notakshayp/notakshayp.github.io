@@ -5,12 +5,17 @@ body {
   margin: 0;
   padding: 2%;
 }
+#me{
+  height: 100vh;
+}
 .card{
     margin: 0 auto;
     width: 100%;
     border: none;
     border-radius: 25px;
 }
+
+
 .lead > .gradientText{
   font-weight:bold ;
 }
@@ -134,7 +139,9 @@ display: inline;
   }
 /* small scren*/
   @media only screen and (max-width: 600px) {
-    
+    body{
+      padding: 30px;
+    }
     .card-title{
         font-size: 6vh;
     }

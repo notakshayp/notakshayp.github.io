@@ -25,8 +25,8 @@
     <link rel="stylesheet" href="styles.css" />
     <!-- Bootstrap CSS -->
 
-    <title>nAP</title>
-  </head>
+    <title>nAP</title><link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
   <body>
     <nav
       id="navbar-scroll"
@@ -52,22 +52,22 @@
       </ul>
     </nav>
     <div>
-      <div class="contentDiv" id="me">
+      <div class="contentDiv" id="me" >
         <div>
           <h2>I am <b class="gradientText">Akshay P</b></h2>
         </div>
         <div>
-          <h3 style="">
-            a Web <b class="gradientText" style="font-weight: bolder">Dev.</b>
+          <h3 id="me_slogan">
+            a Fullstack <span style="font-weight:bold ;" class="">Web Dev.</span>
           </h3>
         </div>
         <div>
-          <p class="lead">
-            An <b class="gradientText">adaptive quick learner</b> looking for an
+          <!-- <p class="lead">
+            I am an exprienced <b class="gradientText">web devloper</b> looking for an
             opportunity to kickstart a career in a challenging organization to
             utilize my skills and knowledge to work for the growth of the
             organisation.
-          </p>
+          </p> -->
         </div>
         
         <center>
@@ -78,73 +78,21 @@
             <a target="_blank" href="https://www.linkedin.com/in/notakshayp/">
               <i class="fa fa-linkedin"></i>
             </a>
-            <a target="_blank" href="https://www.reddit.com/user/NotAkshayP">
-              <i class="fa fa-reddit-alien"></i>
-            </a>
-            <a target="_blank" href="https://www.twitter.com/notakshayp/">
-              <i class="fa fa-twitter"></i>
-            </a>
+            
           </div>
           
         </center>
       </div>
       <h2 id="projects">My <b class="gradientText">Projects</b></h2>
-      <div class="contentDiv">
-        <div class="project">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Task Tracker</h5>
-              <h6 class="card-subtitle mb-2 text-muted gradientText">
-                Java, Maven, JSP & Servlets, AJAX, Bootstrap, HTML, CSS,
-                JavaScript
-              </h6>
-              <p class="card-text">
-                It is an simple and easy to use web app built for managing and
-                monitoring tasks in a workflow with secure login functionally.
-              </p>
-              <a href="http://akshay-task-tracker.herokuapp.com/" target="_blank" class="card-link gradientText">Demo</a>
-              <a href="https://github.com/notakshayp/project-task-tracker-public-demo" target="_blank" class="card-link gradientText">Code</a>
-            </div>
-          </div>
-        </div>
-        <div class="project">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Database WebUI</h5>
-              <h6 class="card-subtitle mb-2 text-muted gradientText">
-                Java, Maven, JSP & Servlets, AJAX, Bootstrap, HTML, CSS,
-                JavaScript, JDBC
-              </h6>
-              <p class="card-text">
-                It is an web nterface for user to connect to the remote database with providing database creds and run queries from the browser.
-                Intial version supports PostgreSQL and MySql.
-              </p>
-              <a href="https://db-web-ui.herokuapp.com/" target="_blank" class="card-link gradientText">Demo</a>
-              <a href="https://github.com/notakshayp/databaseWebUI" target="_blank" class="card-link gradientText">Code</a>
-            </div>
-          </div>
-        </div>
-        <div class="project">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">IDE-THingy</h5>
-              <h6 class="card-subtitle mb-2 text-muted gradientText">
-                Node.js, Express, HTML, JavaScript
-              </h6>
-              <p class="card-text">
-                A simple web application with a node js backend deployed on AWS
-                for a quick and easy way to compile C program online.
-              </p>
-              <a href="https://github.com/notakshayp/IDE-THingy" target="_blank" class="card-link gradientText">Code</a>
-            </div>
-          </div>
-        </div>
+      <div id="projects-featured-list-div" class="contentDiv" >
+
       
-        <center> <a href="/projects.html">
-          <h6 class="fa fa-text" >more projects...</h6>
-        </a></center>
+        
       </div>
-      <h2 id="projects">Get in<b class="gradientText"> touch</b></h2>
+      <center style="margin-bottom: 3vh;"> <a style="font-size: 5vh;" href="/projects.html"  class="card-link">
+       more projects <span style="font-weight: bold;">>></span>
+      </a></center>
+      <h2 id="contact">Get in<b class="gradientText"> touch</b></h2>
 
       <div class="contentDiv" id="contact">
         <center>
@@ -188,6 +136,6 @@
       integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
       crossorigin="anonymous"
     ></script>
-    <script src="./effect.js"></script>
+    <script  type="module" src="./index.js"></script>
   </body>
 </html>

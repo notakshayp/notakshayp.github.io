@@ -5,9 +5,6 @@ body {
   margin: 0;
   padding: 2%;
 }
-#me{
-  height: 100vh;
-}
 .card{
     margin: 0 auto;
     width: 100%;
@@ -76,6 +73,10 @@ display: inline;
 
 /* big screen*/
 @media only screen and (min-width: 601px) {
+  
+#me{
+  height: 100vh;
+}
   .contact-me{
     background-color: aqua;
     display:inline;
@@ -139,6 +140,10 @@ display: inline;
   }
 /* small scren*/
   @media only screen and (max-width: 600px) {
+    
+#me{
+  height: 70vh;
+}
     body{
       padding: 30px;
     }

@@ -71,14 +71,51 @@ display: inline;
     padding: 3%;
 }
 
+
+
+
+#nav-scroll {
+  color:rgb(0, 0, 0);
+  
+}
+
+
+
+a{
+    color: black;
+}
+ul {
+  margin: auto;
+}
+
+
+
+.vert-move {
+  -webkit-animation: mover 1s infinite  alternate;
+  animation: mover 1s infinite  alternate;
+}
+img.vert-move {
+  -webkit-animation: mover 1s infinite  alternate;
+  animation: mover 1s infinite  alternate;
+}
+@-webkit-keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+@keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+
+
 /* big screen*/
 @media only screen and (min-width: 601px) {
   
 #me{
   height: 100vh;
+  padding: 10vh;
 }
   .contact-me{
-    background-color: aqua;
     display:inline;
   }
     .card-title{
@@ -99,7 +136,7 @@ display: inline;
         
         margin: auto;
         font-size: 7vh;
-        margin: 5%;
+        margin: 2.5%;
         
         align-self: center;
       }
@@ -140,10 +177,17 @@ display: inline;
   }
 /* small scren*/
   @media only screen and (max-width: 600px) {
-    
-#me{
-  height: 70vh;
-}
+        
+    #me{
+      height: 100vh;
+      padding-top: 10vh;
+    }
+
+    #me_slogan{
+      font-size: 4vh;
+      padding-bottom: 2vh;
+    }
+
     body{
       padding: 30px;
     }
@@ -193,20 +237,11 @@ display: inline;
     h3{
         font-weight: lighter; font-size: 3rem
     }
-    .contentDiv div{
+
+    #contact-heading{
+      padding-top: 3vh;
+      padding-bottom: 3vh;
+
     }
+    
   }
-
-
-.nav-link {
-  color:rgb(0, 0, 0)
-  font: 1.5rem sans-serif;
-  font-weight: bolder;
-}
-
-a{
-    color: black;
-}
-ul {
-  margin: auto;
-}

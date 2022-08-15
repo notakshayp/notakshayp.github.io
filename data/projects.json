@@ -3,7 +3,7 @@
         "project_name":"Task Tracker",
         "tech_stack":" Java, Maven, JSP & Servlets, AJAX, Bootstrap, HTML, CSS,JavaScript",
         "desc":"It is an simple and easy to use web app built for managing and monitoring tasks in a workflow with secure login functionally.",
-        "demo_url":"http://akshay-task-tracker.herokuapp.com/",
+        "demo_url":"",
         "code_repo":"https://github.com/notakshayp/project-task-tracker-public-demo",
         "blog_url":"",
         "featured":true
@@ -12,7 +12,7 @@
         "project_name":"Database WebUI",
         "tech_stack":" Java, Maven, JSP & Servlets, AJAX, Bootstrap, HTML, CSS, JavaScript, JDBC",
         "desc":"It is an web nterface for user to connect to the remote database with providing database creds and run queries from the browser. Intial version supports PostgreSQL and MySql.",
-        "demo_url":"https://db-web-ui.herokuapp.com/",
+        "demo_url":"",
         "code_repo":"https://github.com/notakshayp/databaseWebUI",
         "blog_url":"",
         "featured":true

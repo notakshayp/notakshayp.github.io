@@ -1,0 +1,47 @@
+[
+    {
+        "project_name":"Task Tracker",
+        "tech_stack":" Java, Maven, JSP & Servlets, AJAX, Bootstrap, HTML, CSS,JavaScript",
+        "desc":"It is an simple and easy to use web app built for managing and monitoring tasks in a workflow with secure login functionally.",
+        "demo_url":"https://akshay-task-tracker.herokuapp.com/",
+        "code_repo":"https://github.com/notakshayp/project-task-tracker-public-demo",
+        "blog_url":"",
+        "featured":true
+    },
+    {
+        "project_name":"Database WebUI",
+        "tech_stack":" Java, Maven, JSP & Servlets, AJAX, Bootstrap, HTML, CSS, JavaScript, JDBC",
+        "desc":"It is an web nterface for user to connect to the remote database with providing database creds and run queries from the browser. Intial version supports PostgreSQL and MySql.",
+        "demo_url":"https://db-web-ui.herokuapp.com/",
+        "code_repo":"https://github.com/notakshayp/databaseWebUI",
+        "blog_url":"",
+        "featured":true
+    },
+    {
+        "project_name":"IDE-THingy",
+        "tech_stack":"Node.js, Express, HTML, JavaScript",
+        "desc":"A simple web application with a node js backend deployed on AWS for a quick and easy way to compile C program online. ",
+        "demo_url":"",
+        "code_repo":"https://github.com/notakshayp/IDE-THingy",
+        "blog_url":"",
+        "featured":false
+    },
+    {
+        "project_name":"Motion Detection Surveillance",
+        "tech_stack":"Python3, OpenCV",
+        "desc":"A motion based detection application to record only during significant motion in live feed is detected for storage optimization. ",
+        "demo_url":"",
+        "code_repo":"https://github.com/notakshayp/MotionDetectionSurveillance",
+        "blog_url":"",
+        "featured":false
+    },
+    {
+        "project_name":"Personalized Home Automation Using Facial Recognition",
+        "tech_stack":"Python3, Raspberry Pi, OpenCV.",
+        "desc":"Facial recognition based home automation.Interfaced devices with Raspberry Pi.",
+        "demo_url":"",
+        "code_repo":"https://github.com/notakshayp/PHAFR",
+        "blog_url":"",
+        "featured":false
+    }
+]

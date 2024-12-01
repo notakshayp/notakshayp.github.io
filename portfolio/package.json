@@ -1,5 +1,5 @@
 {
-  "name": "portfolio",
+  "name": "nap-portfolio",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -34,8 +34,8 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.13",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15",
     "typescript": "~5.3.2"
   }
 }

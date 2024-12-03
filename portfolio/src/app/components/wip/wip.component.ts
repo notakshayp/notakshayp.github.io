@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
 
 @Component({
   selector: 'app-wip',
@@ -9,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class WipComponent {
 
+  @Input() section_name:string="";
 }

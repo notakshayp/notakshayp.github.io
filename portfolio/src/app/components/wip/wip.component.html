@@ -1,4 +1,5 @@
-<div class="w-fit flex flex-col justify-center cursor-default md:flex-row text-7xl sm:text-8xl md:text-8xl lg:text-9xl">
+<div class="w-fit  justify-center cursor-default text-7xl sm:text-8xl md:text-8xl lg:text-9xl">
+  <div class="flex flex-col md:flex-row">
     <div>
       <span class="font-light">work</span>
       <span class="text-primary  relative top-[-0.20em] font-semibold">.</span>
@@ -8,4 +9,11 @@
       <span class="text-secondary relative top-[-0.20em] font-semibold">.</span>
       <span class="font-light">progress</span>
     </div>
+  </div>  
+  <div class=" text-3xl m-8 sm:text-4xl md:text-4xl lg:text-4xl font-extralight italic text-right">
+    @if(section_name.length > 0){
+      <span>( {{section_name}} )</span>
+    }
+  </div>
+  
 </div>

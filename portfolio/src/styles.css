@@ -6,8 +6,34 @@
 
 html{
     scroll-behavior: smooth;
+    font-family: 'Epilogue', sans-serif; /* Set Epilogue as the default font */
+
 }
 
 a{
     text-decoration: none;
 }
+
+/* Add this to your global CSS file (e.g., styles.css) */
+:root {
+    --text: #001a0d;
+    --background: #f1fef7;
+    --primary: #0cdf48;
+    --secondary: #dd83f1;
+    --accent: #9d4efd;
+  }
+  
+  .dark {
+    --text: #e5fff2;
+    --background: #010e07;
+    --primary: #0cdf48;
+    --secondary: #dd83f1;
+    --accent: #9d4efd;
+  }
+
+  :root, .dark, body {
+    transition: background-color 0.6s ease, color 0.6s ease;
+  }
+  
+
+  

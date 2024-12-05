@@ -1,20 +1,8 @@
-<section class="min-h-screen grid place-items-center px-4 sm:px-8">
-  <div class="flex flex-col">
-  <div class="w-fit flex flex-col justify-center cursor-default md:flex-row text-7xl sm:text-8xl md:text-8xl lg:text-9xl">
-    <div>
-      <span class="font-light">not</span>
-      <span class="text-primary  relative top-[-0.20em] font-semibold">.</span>
-    </div>
-    <div>
-      <span class="font-bold text-accent">akshay</span>
-      <span class="text-secondary relative top-[-0.20em] font-semibold">.</span>
-      <span class="font-light">p</span>
-    </div>
-  </div>
-</div>
+<section class="min-h-screen mb-40 grid place-items-center px-4 sm:px-8">
+  <app-landing></app-landing>
 </section>
-<section id="me" class="min-h-screen grid place-items-center px-4 sm:px-8">
-  <app-wip section_name="about me"></app-wip>
+<section id="me" class="min-h-screen px-4 sm:px-8 cursor-default">
+  <app-aboutme></app-aboutme>
 </section>
 <section id="work" class="min-h-screen grid place-items-center px-4 sm:px-8">
   <app-wip section_name="my work"></app-wip>
@@ -22,4 +10,18 @@
 <section id="ping" class="min-h-screen grid place-items-center px-4 sm:px-8">
   <app-wip section_name="my contact"></app-wip>
 </section>
+
+<div
+  id="theme-toggle"
+  class="fixed bottom-4 right-4 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-text text-background cursor-pointer transition-colors duration-200 ease-in-out shadow-lg hover:bg-primary blur-md sm:blur-lg opacity-70"
+>
+</div>
+
+<div
+  id="theme-toggle"
+  class="fixed bottom-4 right-4 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-text text-background cursor-pointer transition-colors duration-300 ease-in-out shadow-lg opacity-90 sm:hover:scale-110"
+  (click)="toggleDarkMode()"
+>
+  <i class="fas fa-circle-half-stroke text-2xl"></i> 
+</div>
 

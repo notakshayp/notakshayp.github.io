@@ -8,9 +8,7 @@
   <app-wip section_name="my work"></app-wip>
 </section>
 <section id="ping" class="min-h-screen grid place-items-center px-4 sm:px-8">
-  <app-wip section_name="my contact"></app-wip>
-</section>
-
+<app-connect></app-connect>
 <div
   id="theme-toggle"
   class="fixed bottom-8 right-8 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-text text-background cursor-pointer transition-colors duration-200 ease-in-out shadow-lg hover:bg-primary blur-md sm:blur-lg opacity-70"
@@ -23,6 +21,5 @@
   (click)="toggleDarkMode()"
 >
 <fa-icon [icon]="faCircleHalfStroke" class="w-fit h-fit text-2xl relative top-[0.1em] "></fa-icon>
-  <!-- <i class="fas fa-circle-half-stroke text-2xl"></i>  -->
 </div>
 

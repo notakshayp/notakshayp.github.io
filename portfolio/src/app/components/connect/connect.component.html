@@ -1,34 +1,39 @@
-<div class="grid">
-    <!-- about me pill -->
-    <div class="bg-accent w-fit h-fit flex flex-col rounded-full border-text border-2 p-4 place-self-center">
-
-        <div class="text-5xl text-justify h-fit w-fit">
-            <span class="font-light">let's</span><span
-                class="font-bold">.connect</span>
-        </div>
+<div class="grid place-items-center min-h-full">
+  <!-- About Me Pill -->
+  <div class="bg-accent w-fit h-fit flex flex-col rounded-full border-text border-2 p-4">
+    <div class="text-5xl text-center h-fit w-fit">
+      <span class="font-light">let's</span><span class="font-bold"><span class="relative top-[-0.2em] font-bold">.</span>connect</span>
     </div>
+  </div>
 
+  <!-- Contact Details -->
+  <div class="flex flex-col items-center h-full">
+    <!-- Email with Blur Effect -->
+    <a 
+      href="mailto:notakshayp@gmail.com" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="flex items-center justify-center gap-2 mt-4 sm:gap-4 sm:mt-16 w-full p-2 sm:p-0 cursor-pointer"
+    >
+      <div class="relative text-center">
+        <span class="relative text-3xl sm:text-4xl font-light underline decoration-primary">
+          notakshayp<span class="relative top-[0.2em] font-normal text-primary">&#64;</span>gmail<span class="relative top-[-0.2em] font-bold text-primary">.</span>com<span class="font-normal text-primary text-lg sm:text-xl pl-3 relative top-[-0.15em]"><fa-icon [icon]="faEnvelope"></fa-icon></span>
+        </span>
+      </div>
+    </a>
 
-    <div class="flex flex-col items-center justify-center">
-        <!-- point 1-->
-        <div class="flex sm:flex-row flex-col gap-2 mt-4 sm:gap-4 sm:mt-16 w-full p-2 sm:p-0 items-center cursor-pointer">
-            <!-- point text -->
-            <div class="relative text-center sm:text-left">
-                <!-- Blur Layer -->
-                <span
-                  class="absolute inset-0 text-3xl sm:text-4xl font-light text-accent blur-sm"
-                  aria-hidden="true"
-                >
-                  notakshayp&#64;gmail<span class="relative top-[-0.2em] font-bold text-accent">.</span>com
-                </span>
-              
-                <!-- Foreground Text -->
-                <span class="relative text-3xl sm:text-4xl font-light underline decoration-primary">
-                  notakshayp&#64;gmail<span class="relative top-[-0.2em] font-bold text-primary">.</span>com
-                </span>
-              </div>
-              
-
-        </div>
-
+    <!-- LinkedIn with Blur Effect -->
+    <a 
+      href="https://linkedin.com/in/notakshayp" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="flex items-center justify-center gap-2 mt-4 sm:gap-4 sm:mt-16 w-full p-2 sm:p-0 cursor-pointer"
+    >
+      <div class="relative text-center">
+        <span class="relative text-3xl sm:text-4xl font-light underline decoration-secondary">
+          linkedin<span class="font-normal text-secondary text-3xl sm:text-4xl relative top-[0.2em]">/</span>notakshayp<span class="font-normal text-secondary text-lg sm:text-xl pl-3 relative top-[-0.15em]"><fa-icon [icon]="faLinkedin"></fa-icon></span>
+        </span>
+      </div>
+    </a>
+  </div>
 </div>

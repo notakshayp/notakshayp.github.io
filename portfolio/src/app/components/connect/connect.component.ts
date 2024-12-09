@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import { faEnvelope, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope,faFeatherPointed, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-connect',
@@ -13,4 +15,5 @@ import { faEnvelope, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 export class ConnectComponent {
 
   faEnvelope:IconDefinition=faEnvelope;
+  faLinkedin:IconDefinition=faLinkedin;
 }

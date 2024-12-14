@@ -7,11 +7,12 @@ import { AboutmeComponent } from './components/aboutme/aboutme.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCircleHalfStroke } from '@fortawesome/free-solid-svg-icons';
 import { ConnectComponent } from './components/connect/connect.component';
+import { FireflyComponent } from './components/firefly/firefly.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,WipComponent,NavComponent, LandingComponent,AboutmeComponent,FontAwesomeModule, ConnectComponent],
+  imports: [RouterOutlet,WipComponent,NavComponent, LandingComponent,AboutmeComponent,FontAwesomeModule, ConnectComponent,FireflyComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

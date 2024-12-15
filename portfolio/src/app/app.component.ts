@@ -8,11 +8,22 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCircleHalfStroke } from '@fortawesome/free-solid-svg-icons';
 import { ConnectComponent } from './components/connect/connect.component';
 import { FireflyComponent } from './components/firefly/firefly.component';
+import { ProjectcardComponent } from './components/projectcard/projectcard.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,WipComponent,NavComponent, LandingComponent,AboutmeComponent,FontAwesomeModule, ConnectComponent,FireflyComponent],
+  imports: [
+    RouterOutlet,
+    WipComponent,
+    NavComponent,
+    LandingComponent,
+    AboutmeComponent,
+    FontAwesomeModule,
+    ConnectComponent,
+    FireflyComponent,
+    ProjectcardComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -17,14 +17,14 @@ a{
 /* Add this to your global CSS file (e.g., styles.css) */
 :root {
     --text: #001a0d;
-    --background: #f1fef7;
+    --background: #f4f1cf;
     --primary: #0cdf48;
     --secondary: #dd83f1;
     --accent: #9d4efd;
   }
   
   .dark {
-    --text: #e5fff2;
+    --text: #f4f1cf;
     --background: #010e07;
     --primary: #0cdf48;
     --secondary: #dd83f1;
@@ -32,8 +32,10 @@ a{
   }
 
   :root, .dark, body {
-    transition: background-color 0.5s ease, color 0.5s ease;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease;
   }
   
-
+.noise{
+  background-image: url(/assets/svgs/bg-noise.svg);
+}
   

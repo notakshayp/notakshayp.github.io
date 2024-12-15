@@ -1,15 +1,16 @@
 <div class="flex items-center justify-center h-screen" id="movingDiv" [style.offset-path]="svgPath">
     <div class="firefly relative w-32 h-32">
         <!-- FireFly Pulse -->
-        <div class="absolute inset-0 rounded-full shadow-lg animate-ping duration-[6000ms]" [ngClass]="fireFlyColor">
+        <div class="absolute inset-0 rounded-full shadow-lg animate-pingSlow " [ngClass]="fireFlyColor">
             <!-- FireFly Pulse -->
         </div>
 
         <!-- FireFly Body -->
         <div class="absolute inset-0 flex items-center justify-center">
-            <div class="w-2/5 h-2/5 rounded-full shadow-lg" [ngClass]="fireFlyColor">
+            <div class="w-2/5 h-2/5 rounded-full shadow-lg " [ngClass]="fireFlyColor">
                 <!-- FireFly Body -->
             </div>
         </div>
     </div>
+
 </div>

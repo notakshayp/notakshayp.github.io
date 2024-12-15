@@ -2,7 +2,7 @@
 #movingDiv {
     /* border-radius: 50%; */
     position: absolute;
-    animation: moveAlongPath 15s ease infinite alternate;
+    animation: moveAlongPath 15s linear infinite alternate;
     offset-distance: 0%; /* Initial position */
     offset-rotate: auto;
   }

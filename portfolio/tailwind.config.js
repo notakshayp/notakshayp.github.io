@@ -17,6 +17,7 @@ module.exports = {
       },
       animation: {
         spinSlow: 'spin 8s cubic-bezier(0.42, 0, 0.58, 1) infinite', // Slower spin (5 seconds per rotation)
+        pingSlow: 'ping 1.3s ease infinite',
       }
     },
   },

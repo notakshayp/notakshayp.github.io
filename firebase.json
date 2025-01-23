@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "portfolio/dist/nap-portfolio/browser",
+    "public": "portfolio/out",
     "ignore": [
       "firebase.json",
       "**/.*",

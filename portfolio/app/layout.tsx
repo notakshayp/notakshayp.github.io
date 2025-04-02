@@ -5,7 +5,7 @@ import { ThemeProvider } from "../contexts/ThemeContext"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "Akshay - AI Fullstack Engineer",
+  title: "nap",
   description: "Portfolio of Akshay, a Freelance AI Fullstack Engineer",
 }
 
@@ -16,6 +16,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+      </head>
       <body
         className={`${inter.className} bg-white dark:bg-gray-900 text-black dark:text-white transition-colors duration-300`}
       >

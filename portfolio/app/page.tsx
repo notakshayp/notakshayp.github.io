@@ -56,6 +56,13 @@ function Skills() {
     "TypeScript",
     "JavaScript",
     "Python",
+    "Google Cloud",
+    "Cloud Run Fucntions",
+    "Vertex AI",
+    "NextJS",
+    "Docker",
+    "Prompt Engineering",
+    "Babel",
     "Ollama",
     "LangChain",
     "AI Applications",
@@ -91,10 +98,10 @@ function Work() {
       status: "completed",
     },
     {
-      name: "📄 ResFolio",
-      description: "A PDF resume to portfolio builder using LLaMa 3.2 model with LangChain, Python, and Ollama.",
-      link: null,
-      status: "in-progress",
+      name: "🚀 ResFolio",
+      description: "A resume to portfolio builder using LLM, Python, and hosted on Google Cloud.",
+      link: "https://rezfolio.in",
+      status: "completed",
     },
   ]
 

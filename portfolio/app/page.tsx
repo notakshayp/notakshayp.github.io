@@ -40,10 +40,7 @@ function About() {
     <motion.section {...fadeIn} className="space-y-4">
       <h2 className="text-2xl md:text-3xl font-semibold">About Me</h2>
       <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-        I'm a full stack dev with 4 years of exp in building high quality web apps for my clients using modern tech
-        stack (Angular, React, TypeScript, JavaScript, Python). Experience building AI applications using Ollama and
-        LangChain. Adept at coordinating remote teams across time zones, ensuring smooth communication and on-time
-        delivery. Open to freelance projects and collaborations.
+      I'm a full-stack engineer with over 5 years of experience crafting scalable, secure, and high-performance web applications. I specialize in React, Angular, Node.js, Python, and Google Cloud. I've shipped AI-powered apps using LangChain, Ollama, and Google Vertex AI. My background includes building cloud-native microservices, and streamlining CI/CD pipelines. I thrive in remote team settings and love mentoring developers. Always up for cool projects and freelance gigs.
       </p>
     </motion.section>
   )
@@ -51,21 +48,29 @@ function About() {
 
 function Skills() {
   const skills = [
-    "Angular",
-    "React",
+    "Python",
     "TypeScript",
     "JavaScript",
-    "Python",
-    "Google Cloud",
-    "Cloud Run Fucntions",
-    "Vertex AI",
+    "Angular",
+    "React",
     "NextJS",
+    "NodeJs",
+    "Google Cloud",
+    "Cloud Run",
+    "Vertex AI",
     "Docker",
     "Prompt Engineering",
-    "Babel",
+    "CI/CD",
     "Ollama",
     "LangChain",
-    "AI Applications",
+    "Redis",
+    "PostgreSQL",
+    "MongoDB",
+    "Webhooks",
+    "API Design",
+    "Microservices",
+    "Firebase",
+    "AI App Development",
     "Remote Team Coordination",
   ]
 
@@ -92,22 +97,23 @@ function Skills() {
 function Work() {
   const projects = [
     {
+      name: "✨ ResFolio",
+      description: "A resume to portfolio builder using LLM, Python, and hosted on Google Cloud.",
+      link: "https://rezfolio.in",
+      status: "completed",
+    },
+    {
       name: "🎨 Pxl-Artisan",
       description: "A Pixel art making web app built using Angular and hosted on Firebase.",
       link: "https://pxl-artisan.web.app/",
       status: "completed",
     },
-    {
-      name: "🚀 ResFolio",
-      description: "A resume to portfolio builder using LLM, Python, and hosted on Google Cloud.",
-      link: "https://rezfolio.in",
-      status: "completed",
-    },
+    
   ]
 
   return (
     <motion.section {...fadeIn} className="space-y-4">
-      <h2 className="text-2xl md:text-3xl font-semibold">My Work</h2>
+      <h2 className="text-2xl md:text-3xl font-semibold">My Projects</h2>
       <div className="grid gap-4 md:grid-cols-2">
         {projects.map((project, index) => (
           <motion.div
@@ -115,7 +121,7 @@ function Work() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg"
+            className="p-4 border border-gray-200 dark:border-gray-700 rounded-2xl"
           >
             <h3 className="text-lg font-medium mb-2">{project.name}</h3>
             <p className="text-gray-600 dark:text-gray-400 mb-4">{project.description}</p>

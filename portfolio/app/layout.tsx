@@ -1,12 +1,9 @@
 import "./globals.css"
-import { Inter } from "next/font/google"
 import { ThemeProvider } from "../contexts/ThemeContext"
 
-const inter = Inter({ subsets: ["latin"] })
-
 export const metadata = {
-  title: "nap",
-  description: "Portfolio of Akshay, a Freelance AI Fullstack Engineer",
+  title: "Akshay Poothamkotil",
+  description: "Portfolio of Akshay Poothamkotil, Software Development Engineer II at Amazon",
 }
 
 export default function RootLayout({
@@ -16,11 +13,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-      </head>
-      <body
-        className={`${inter.className} bg-white dark:bg-gray-900 text-black dark:text-white transition-colors duration-300`}
-      >
+      <head />
+      <body className="bg-white dark:bg-gray-950 text-black dark:text-white transition-colors duration-300 font-sans antialiased">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

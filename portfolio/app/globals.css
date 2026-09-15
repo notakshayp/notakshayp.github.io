@@ -108,4 +108,6 @@
 .case-side img{width:154px;height:72px}
 .cisco-case .case-side img{width:124px;height:72px}
 :root{--accent:#2f7d5a}
+.contact-guide h2{font-size:clamp(54px,7vw,96px)}
+@media(max-width:760px){.contact-guide h2{font-size:clamp(48px,14vw,76px)}}
 @media(max-width:760px){.rail nav::after{bottom:118px}}

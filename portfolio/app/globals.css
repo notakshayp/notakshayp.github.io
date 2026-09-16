@@ -104,7 +104,7 @@
 .rail::before{animation:nameplate-images 16s steps(1,end) infinite;opacity:.84;filter:saturate(.82) contrast(1.05)}
 .rail::before{background-image:url('/hero/iphone.jpg')!important;animation:none!important;opacity:.92;filter:saturate(.9) contrast(1.05)}
 .rail nav::after{animation:none!important;transform:translateX(-50%) rotate(0deg)}
-.rail nav::after{transform:translateX(-50%) rotate(180deg)}
+.rail nav::after{transform:translateX(-50%) rotate(0deg)}
 .rail::before{background-position:50% 50%!important;background-size:cover!important}
 .rail::before{background-image:url('/hero/crop.jpg')!important}
 :root{--bg:#eee9df;--panel:#e7e1d6;--line:#d2cbc0}

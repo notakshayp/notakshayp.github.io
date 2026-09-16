@@ -96,11 +96,18 @@
 @media(max-width:760px){.rail nav::after{bottom:144px}}
 .rail nav::after{bottom:98px}
 @media(max-width:760px){.rail nav::after{bottom:168px}}
+.rail::before{background-image:url('/hero/iphone.jpg')!important;animation:none!important}
 .rail::before{animation:nameplate-images-smooth 16s ease-in-out infinite}
 @keyframes nameplate-images-smooth{0%,23%{background-image:url('/hero/texture-a.jpg');opacity:.84}24%{background-image:url('/hero/texture-a.jpg');opacity:0}25%{background-image:url('/hero/texture-b.jpg');opacity:0}26%,48%{background-image:url('/hero/texture-b.jpg');opacity:.84}49%{background-image:url('/hero/texture-b.jpg');opacity:0}50%{background-image:url('/hero/texture-c.jpg');opacity:0}51%,73%{background-image:url('/hero/texture-c.jpg');opacity:.84}74%{background-image:url('/hero/texture-c.jpg');opacity:0}75%{background-image:url('/hero/texture-d.jpg');opacity:0}76%,98%{background-image:url('/hero/texture-d.jpg');opacity:.84}99%,100%{background-image:url('/hero/texture-a.jpg');opacity:0}}
 .rail::before{animation:nameplate-images-blur 16s ease-in-out infinite;opacity:.84}
 @keyframes nameplate-images-blur{0%,23%{background-image:url('/hero/texture-a.jpg');filter:saturate(.82) contrast(1.05) blur(0)}24%{background-image:url('/hero/texture-a.jpg');filter:saturate(.82) contrast(1.05) blur(6px)}25%{background-image:url('/hero/texture-b.jpg');filter:saturate(.82) contrast(1.05) blur(6px)}26%,48%{background-image:url('/hero/texture-b.jpg');filter:saturate(.82) contrast(1.05) blur(0)}49%{background-image:url('/hero/texture-b.jpg');filter:saturate(.82) contrast(1.05) blur(6px)}50%{background-image:url('/hero/texture-c.jpg');filter:saturate(.82) contrast(1.05) blur(6px)}51%,73%{background-image:url('/hero/texture-c.jpg');filter:saturate(.82) contrast(1.05) blur(0)}74%{background-image:url('/hero/texture-c.jpg');filter:saturate(.82) contrast(1.05) blur(6px)}75%{background-image:url('/hero/texture-d.jpg');filter:saturate(.82) contrast(1.05) blur(6px)}76%,98%{background-image:url('/hero/texture-d.jpg');filter:saturate(.82) contrast(1.05) blur(0)}99%{background-image:url('/hero/texture-d.jpg');filter:saturate(.82) contrast(1.05) blur(6px)}100%{background-image:url('/hero/texture-a.jpg');filter:saturate(.82) contrast(1.05) blur(6px)}}
 .rail::before{animation:nameplate-images 16s steps(1,end) infinite;opacity:.84;filter:saturate(.82) contrast(1.05)}
+.rail::before{background-image:url('/hero/iphone.jpg')!important;animation:none!important;opacity:.92;filter:saturate(.9) contrast(1.05)}
+.rail nav::after{animation:none!important;transform:translateX(-50%) rotate(0deg)}
+.rail nav::after{transform:translateX(-50%) rotate(180deg)}
+.rail::before{background-position:50% 50%!important;background-size:cover!important}
+.rail::before{background-image:url('/hero/crop.jpg')!important}
+:root{--bg:#eee9df;--panel:#e7e1d6;--line:#d2cbc0}
 .rail nav::after{filter:brightness(0) saturate(100%) invert(28%) sepia(26%) saturate(1160%) hue-rotate(89deg) brightness(86%) contrast(91%)}
 :root{--accent:#1f6b45}
 .accent-word{color:var(--accent)}

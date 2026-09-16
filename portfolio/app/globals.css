@@ -111,6 +111,7 @@
 .rail::before{overflow:visible;white-space:nowrap}
 @media(max-width:760px){.rail::before{font-size:clamp(88px,26vw,150px);letter-spacing:-.13em;left:0;width:100%;text-align:center}}
 .rail nav::after{background-image:url('/doodles/arrow-26.svg')!important}
+.rail nav::after{transform:translateX(-50%) rotate(180deg)!important}
 .rail nav::after{filter:brightness(0) saturate(100%) invert(28%) sepia(26%) saturate(1160%) hue-rotate(89deg) brightness(86%) contrast(91%)}
 :root{--accent:#1f6b45}
 .accent-word{color:var(--accent)}

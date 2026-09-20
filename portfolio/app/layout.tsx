@@ -1,6 +1,7 @@
 import "./globals.css"
 import { ThemeProvider } from "../contexts/ThemeContext"
 import { AccentWords } from "../components/AccentWords"
+import { SarvamExperience } from "../components/SarvamExperience"
 
 export const metadata = {
   metadataBase: new URL("https://notakshayp.in"),
@@ -47,6 +48,7 @@ export default function RootLayout({
       <body className="bg-white dark:bg-gray-950 text-black dark:text-white transition-colors duration-300 font-sans antialiased">
         <ThemeProvider>
           <AccentWords />
+          <SarvamExperience />
           <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ProfilePage",

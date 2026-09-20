@@ -121,4 +121,11 @@
 :root{--accent:#2f7d5a}
 .contact-guide h2{font-size:clamp(54px,7vw,96px)}
 @media(max-width:760px){.contact-guide h2{font-size:clamp(48px,14vw,76px)}}
+.sarvam-case{min-height:405px;background:transparent}
+.sarvam-case .case-side{justify-content:space-between}
+.sarvam-mark{font-size:22px;letter-spacing:-.06em;color:var(--accent)}
+.sarvam-case .case-side img{width:154px;height:58px;object-fit:contain;object-position:left center;filter:brightness(0) saturate(100%) invert(34%) sepia(28%) saturate(860%) hue-rotate(103deg) brightness(88%) contrast(88%)!important}
+.sarvam-case .case-main{justify-content:center}
+.sarvam-case .case-main h3{font-size:clamp(48px,7vw,90px);letter-spacing:.02em;margin:0}
+@media(max-width:760px){.sarvam-case{min-height:auto}.sarvam-case .case-side{min-height:125px}.sarvam-case .case-main{min-height:180px}.sarvam-case .case-main h3{font-size:64px}}
 @media(max-width:760px){.rail nav::after{bottom:118px}}

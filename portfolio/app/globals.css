@@ -129,3 +129,9 @@
 .sarvam-case .case-main h3{font-size:clamp(48px,7vw,90px);letter-spacing:.02em;margin:0}
 @media(max-width:760px){.sarvam-case{min-height:auto}.sarvam-case .case-side{min-height:125px}.sarvam-case .case-main{min-height:180px}.sarvam-case .case-main h3{font-size:64px}}
 @media(max-width:760px){.rail nav::after{bottom:118px}}
+
+/* Keep the image-filled nameplate above the butterfly canvas. */
+.field-guide > .rail { z-index: 3; }
+
+/* Remove the decorative scroll arrow below the nameplate. */
+.field-guide .rail nav::after { display: none !important; }

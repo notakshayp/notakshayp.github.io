@@ -135,3 +135,16 @@
 
 /* Remove the decorative scroll arrow below the nameplate. */
 .field-guide .rail nav::after { display: none !important; }
+
+/* Decorative canvas overflow must never widen the page or reserve layout space. */
+html, body { overflow-x: clip; }
+.field-guide { overflow-x: clip; }
+
+/* Categorized toolkit, with readable wrapping on narrow screens. */
+.field-guide .tool-area{grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:48px}
+.skills-table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:14px;line-height:1.65;text-align:left}
+.skills-table th,.skills-table td{padding:16px 14px;border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere}
+.skills-table tr:first-child>*{border-top:1px solid var(--line)}
+.skills-table th{width:34%;font-weight:600;letter-spacing:-.025em}
+.skills-table td{color:var(--muted)}
+@media(max-width:760px){.field-guide .tool-area{grid-template-columns:minmax(0,1fr);gap:32px}.skills-table{font-size:13px}.skills-table th,.skills-table td{padding:13px 8px}.skills-table th{width:35%}}

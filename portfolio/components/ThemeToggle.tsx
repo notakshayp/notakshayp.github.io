@@ -1,18 +1,19 @@
 "use client"
 
 import { useTheme } from "../contexts/ThemeContext"
-import { Sun, Moon } from "lucide-react"
 
 export const ThemeToggle: React.FC = () => {
-  const { theme, toggleTheme } = useTheme()
+  const { theme, setPreference } = useTheme()
+  const next = theme === "dark" ? "light" : "dark"
 
   return (
     <button
-      onClick={toggleTheme}
-      className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 transition-colors duration-200"
-      aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+      onClick={() => setPreference(next)}
+      className="theme-text-toggle"
+      aria-label={`Switch to ${next} mode (currently ${theme})`}
+      title={`Switch to ${next}`}
     >
-      {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
+      {theme}
     </button>
   )
 }

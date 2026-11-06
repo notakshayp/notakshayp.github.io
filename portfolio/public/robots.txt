@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://notakshayp.in/sitemap.xml
+Host: https://notakshayp.in

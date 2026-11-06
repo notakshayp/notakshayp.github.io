@@ -17,7 +17,7 @@ export function startButterflies(canvas, frontCanvas) {
     let previousScrollX = scrollX, previousScrollY = scrollY;
     let nextZoom = 2 + Math.random() * 3;
     const accentCompanions = new Map(), positionedParents = new Map();
-    const accentSelector = '.accent-word, .case-side img, .project-card .anu-mark span, .project-card svg';
+    const accentSelector = '.case-side img, .project-card .anu-mark span';
     function measureContent() {
       const site = document.querySelector('.field-guide');
       const siteRect = site?.getBoundingClientRect();
@@ -32,13 +32,30 @@ export function startButterflies(canvas, frontCanvas) {
         hero.width = Math.max(100,wordWidth); hero.height = fontSize;
         hero.left = r.left+scrollX+(r.width-hero.width)/2; hero.right = hero.left+hero.width;
         hero.top = r.top+scrollY+r.height/2-fontSize*.5; hero.bottom = hero.top+hero.height;
-        hero.flightLeft = Math.max(heroOriginX+25,hero.left-110);
-        hero.flightRight = Math.min(heroOriginX+(siteRect?.width||width)-25,hero.right+110);
-        hero.flightTop = Math.max(r.top+scrollY+70,hero.top-140);
-        hero.flightBottom = Math.min(r.bottom+scrollY-50,hero.bottom+140);
+        hero.flightLeft = heroOriginX+30;
+        hero.flightRight = heroOriginX+(siteRect?.width||width)-30;
+        hero.flightTop = Math.max(r.top+scrollY+60,hero.top-180);
+        hero.flightBottom = heroOriginY+(siteRect?.height||height)-40;
+        // Hero band = rail (nameplate) + headline section. The other bands
+        // are the 4 content sections that each get a couple of butterflies.
+        hero.sections = [];
+        for (const sel of ['.rail', '.hero-guide', '.work-area', '.tool-area', '.side-projects', '.contact-guide']) {
+          const el = site?.querySelector(sel);
+          if (!el) continue;
+          const er = el.getBoundingClientRect();
+          if (er.height < 1) continue;
+          hero.sections.push({ top: er.top + scrollY, bottom: er.bottom + scrollY });
+        }
+        if (hero.sections.length >= 2) {
+          hero.heroBand = { top: hero.sections[0].top, bottom: hero.sections[1].bottom };
+          hero.restSections = hero.sections.slice(2);
+        } else {
+          hero.heroBand = { top: hero.flightTop, bottom: hero.flightBottom };
+          hero.restSections = hero.sections;
+        }
         // Hero layers scroll natively with the document, rather than tracking scroll in JS.
-        const layerWidth = siteRect?.width || width, layerHeight = r.bottom + scrollY - heroOriginY + 50;
-        const dpr = Math.min(devicePixelRatio || 1, smallDevice ? 1.5 : 2, Math.sqrt(2000000/(layerWidth*layerHeight)));
+        const layerWidth = siteRect?.width || width, layerHeight = Math.max(r.bottom + scrollY - heroOriginY + 400, siteRect?.height || 0);
+        const dpr = Math.min(devicePixelRatio || 1, smallDevice ? 1.5 : 2, Math.sqrt(8000000/(layerWidth*layerHeight)));
         for (const layer of [canvas,frontCanvas]) {
           layer.style.height = `${layerHeight}px`;
           const pixelWidth=Math.round(layerWidth*dpr), pixelHeight=Math.round(layerHeight*dpr);
@@ -53,7 +70,8 @@ export function startButterflies(canvas, frontCanvas) {
     const pointer = { x: 0, y: 0, vx: 0, vy: 0, lastMove: -Infinity, active: false, touch: false, expiresAt: Infinity };
     const palettes = ['#d8c5e8', '#edc7cf', '#f1c6af', '#e9d7aa', '#bccfe7', '#2f7d5a'];
     const bodyColors = ['#c1a0dc', '#dfa4b3', '#dfa78b', '#d8bd80', '#98b5da', '#286b4e'];
-    const butterflies = Array.from({ length: smallDevice ? 5 : 8 }, (_, i) => ({
+    const heroCount = smallDevice ? 2 : 8;
+    const butterflies = Array.from({ length: smallDevice ? 6 : 16 }, (_, i) => ({
       shape: 1, travel: 0, checkAt: 0, detourUntil: 0,
       role: 'hero', entranceAt: i*.22+Math.random()*.12, arrived: false,
       front: i % 2 === 0, initialized: false,
@@ -68,9 +86,9 @@ export function startButterflies(canvas, frontCanvas) {
       flapPhase: Math.random() * TAU, flapRate: 7 + Math.random() * 7,
       rhythmRate: .35 + Math.random() * .7, wingDepth: .65 + Math.random() * .3,
       nextGlide: 2 + Math.random() * 8, glideStart: 0, glideUntil: 0,
-      radius: 95 + (i % 4) * 27, speed: .35 + Math.random() * .4,
-      direction: i % 2 ? 1 : -1, size: 8 + Math.random() * 4,
-      opacity: .85,
+      radius: 95 + (i % 4) * 27, speed: .55 + Math.random() * .6,
+      direction: i % 2 ? 1 : -1, size: 17 + Math.random() * 8,
+      opacity: .9,
       color: palettes[i % 5],
       bodyColor: bodyColors[i % 5],
       heading: 0, fleeUntil: 0, fleeX: 0, fleeY: 0
@@ -85,9 +103,16 @@ export function startButterflies(canvas, frontCanvas) {
       pointer.x = Math.min(width, pointer.x); pointer.y = Math.min(height, pointer.y);
       if (dimensionsChanged) measureContent();
       for (const b of butterflies) if (b.role === 'hero' && !b.initialized) {
-        const edge=b.element%3;
-        b.x=edge===0?-65:edge===1?width+65:hero.left+Math.random()*hero.width;
-        b.y=edge===2?heroOriginY-65:hero.top+Math.random()*hero.height;
+        if (b.element < heroCount) {
+          // Hero butterflies glide in from the edges onto the wordmark.
+          const edge = b.element % 3;
+          b.x = edge === 0 ? heroOriginX - 65 : edge === 1 ? heroOriginX + width + 65 : hero.left + Math.random() * hero.width;
+          b.y = edge === 2 ? heroOriginY - 65 : hero.top + Math.random() * hero.height;
+        } else {
+          const sec = hero.restSections?.[(b.element - heroCount) % hero.restSections.length] || { top: hero.flightTop, bottom: hero.flightBottom };
+          b.x = hero.flightLeft + Math.random() * Math.max(1, hero.flightRight - hero.flightLeft);
+          b.y = sec.top + Math.random() * Math.max(1, sec.bottom - sec.top);
+        }
         b.initialized=true;
       }
     }
@@ -291,33 +316,87 @@ export function startButterflies(canvas, frontCanvas) {
         c.heading+=Math.atan2(Math.sin(heading-c.heading),Math.cos(heading-c.heading))*Math.min(1,dt*6);
         c.flapPhase=(c.flapPhase+dt*c.flapRate*(1+.12*Math.sin(now*.8+c.phase))*(fleeing?1.6:1))%TAU;
         const fold=.46+.48*Math.pow((1+Math.cos(c.flapPhase))/2,.7);
+        const glow=(1+Math.cos(c.flapPhase))/2;
         clearLayer(paint,c.canvas);
-        paint.save();paint.translate(c.x,c.y);paint.rotate(c.heading);paint.globalAlpha=.65;
+        paint.save();paint.translate(c.x,c.y);paint.rotate(c.heading);paint.globalAlpha=.78;
+        // Butterfly-shaped glow: shadow follows the wing sprite, not a circle.
+        paint.shadowColor='#2f7d5a40';paint.shadowBlur=3+glow*4;paint.shadowOffsetY=0;
         for(const side of [-1,1]) {
-          paint.save();paint.scale(side*fold*5.5,5.5);
+          paint.save();paint.scale(side*fold*6,6);
           paint.drawImage(sprite,-.1,-2,2.4,3.8);paint.restore();
         }
-        paint.fillStyle='#286b4e';paint.beginPath();paint.ellipse(0,.66,.385,2.2,0,0,TAU);paint.fill();
+        paint.shadowColor='transparent';paint.shadowBlur=0;paint.shadowOffsetY=0;
+        paint.fillStyle='#286b4e';paint.beginPath();paint.ellipse(0,.72,.42,2.4,0,0,TAU);paint.fill();
         paint.restore();
       }
     }
     function flightTarget(b, now) {
       const target=b.target;
       if (!b.arrived) {
-        target.x=(hero.left+hero.right)/2+Math.cos(b.phase)*hero.width*.16;
-        target.y=(hero.top+hero.bottom)/2+Math.sin(b.phase)*hero.height*.18;
+        if (b.element < heroCount) {
+          // Hero butterflies arrive onto their own letter of the wordmark,
+          // spread across the full text instead of piling at its centre.
+          const slot = hero.width / heroCount;
+          target.x = hero.left + slot * (b.element + 0.5);
+          target.y = (hero.top + hero.bottom) / 2 + (b.element % 2 ? hero.height * 0.2 : -hero.height * 0.2);
+
+        } else {
+          const band = hero.restSections?.[(b.element - heroCount) % hero.restSections.length];
+          if (band) {
+            target.x = hero.flightLeft + ((b.element * 37) % Math.max(1, Math.floor(hero.flightRight - hero.flightLeft)));
+            target.y = band.top + (band.bottom - band.top) / 2;
+          } else {
+            target.x=(hero.left+hero.right)/2; target.y=(hero.top+hero.bottom)/2;
+          }
+        }
         if(Math.hypot(b.x-target.x,b.y-target.y)>55) return target;
         b.arrived=true;
       }
+      // Hero butterflies stick to the name: orbit slowly above/over the
+      // letters with breathing room, instead of wandering the whole hero band.
+      if (b.element < heroCount) {
+        // Spread across the whole word: anchor each butterfly over its own
+        // letter slot, then loop above/over that slot (never all centred).
+        const slot = hero.width / heroCount;
+        const ax = hero.left + slot * (b.element + 0.5);
+        const ay = (hero.top + hero.bottom) / 2 + (b.element % 2 ? hero.height * 0.22 : -hero.height * 0.22);
+        const roam = .5 + .5 * Math.sin(now * .19 + b.phase);
+        const orbitX = slot * (0.85 + 0.35 * roam) + 18;
+        const orbitY = hero.height * (0.2 + 0.13 * (.5 + .5 * Math.sin(now * .23 + b.phase * 2)));
+        const turn = b.angle + Math.sin(now * .27 + b.phase) * .35;
+        target.x = ax + Math.cos(turn) * orbitX;
+        target.y = ay + Math.sin(turn) * orbitY;
+        target.x = Math.max(hero.flightLeft, Math.min(hero.flightRight, target.x));
+        target.y = Math.max(hero.flightTop, Math.min(hero.flightBottom, target.y));
+        return target;
+      }
       {
-        // Slowly changing excursions leave breathing room around the lettering.
-        const roam = .5+.5*Math.sin(now*.19+b.phase);
-        const orbitX = (hero.flightRight-hero.flightLeft)*(.24+.23*roam);
-        const orbitY = (hero.flightBottom-hero.flightTop)*(.2+.27*(.5+.5*Math.sin(now*.23+b.phase*2)));
-        const turn = b.angle+Math.sin(now*.27+b.phase)*.3;
-        target.x = (hero.flightLeft+hero.flightRight)/2+Math.cos(turn)*orbitX;
-        target.y = (hero.flightTop+hero.flightBottom)/2+Math.sin(turn)*orbitY;
-
+        // Zone roaming: each butterfly has a home band (page split by index)
+        // and mostly wanders inside it, so scrolling or chasing one never
+        // drags the whole swarm to one place. Occasional free detour across
+        // the full page (15%) keeps them feeling active.
+        const pageH = Math.max(1, hero.flightBottom - hero.flightTop);
+        // Hero keeps its original number; every other section gets 2 (desktop)
+        // or 1 (mobile), roaming inside its own band.
+        const band = b.element < heroCount
+          ? hero.heroBand
+          : hero.restSections?.[(b.element - heroCount) % hero.restSections.length];
+        const sec = band || { top: hero.flightTop, bottom: hero.flightBottom };
+        const bandTop = sec.top, bandH = Math.max(1, sec.bottom - sec.top);
+        if (now > b.nextWander || b.wanderX < hero.flightLeft || b.wanderX > hero.flightRight) {
+          b.wanderX = hero.flightLeft + Math.random() * Math.max(1, hero.flightRight - hero.flightLeft);
+          if (Math.random() < 0.85) {
+            b.wanderY = bandTop + Math.random() * bandH;
+          } else {
+            b.wanderY = hero.flightTop + Math.random() * pageH;
+          }
+          b.nextWander = now + 3 + Math.random() * 4;
+        }
+        const turn = b.angle + Math.sin(now *.27 + b.phase) * .35;
+        target.x = b.wanderX + Math.cos(turn) * 52;
+        target.y = b.wanderY + Math.sin(turn) * 38;
+        target.x = Math.max(hero.flightLeft, Math.min(hero.flightRight, target.x));
+        target.y = Math.max(hero.flightTop, Math.min(hero.flightBottom, target.y));
         return target;
       }
     }
@@ -346,7 +425,7 @@ export function startButterflies(canvas, frontCanvas) {
       if (now >= nextZoom) {
         const candidates = [];
         for (const b of butterflies) {
-          if (b.role !== 'hero' || now < b.fleeUntil || now < b.zoomUntil) continue;
+          if (b.role !== 'hero' || b.element >= heroCount || now < b.fleeUntil || now < b.zoomUntil) continue;
           candidates.push(b);
         }
         if (candidates.length) {
@@ -358,7 +437,7 @@ export function startButterflies(canvas, frontCanvas) {
             b.glideUntil = now;
           }
         }
-        nextZoom = now + 2.5 + Math.random() * 4;
+        nextZoom = now + 4 + Math.random() * 5;
       }
       for (const b of butterflies) {
         if(now<b.entranceAt) continue;
@@ -384,7 +463,7 @@ export function startButterflies(canvas, frontCanvas) {
         const dxTarget = target.x - b.x, dyTarget = target.y - b.y;
         const targetDistance = Math.max(1, Math.hypot(dxTarget, dyTarget));
         const following = b.role === 'cursor' && pointer.active;
-        const baseCruise = b.arrived ? 78 : Math.min(220,80+targetDistance*.25);
+        const baseCruise = b.arrived ? 95 : Math.min(220,80+targetDistance*.25);
         const cruise = baseCruise + 250 * zoom;
         const avoidance = b.avoidance;
         // Cursor companions can drift over words; a strong obstacle force used to repel them.
@@ -448,10 +527,23 @@ export function startButterflies(canvas, frontCanvas) {
         const speed = Math.hypot(b.vx, b.vy), limit = now < b.fleeUntil ? 360 : 220 + 200 * zoom;
         if (speed > limit) { b.vx *= limit / speed; b.vy *= limit / speed; }
         b.x += b.vx * dt; b.y += b.vy * dt;
-        // No collision snapping: positions always follow their continuous velocity.
+        // Hard edge clamp with wingspan margin: centres never get closer
+        // than a full wing to the guide/canvas corners, so wings never clip.
+        {
+          const edge = b.size * 2 + 8;
+          const minX = hero.flightLeft + edge, maxX = hero.flightRight - edge;
+          const minY = hero.flightTop + edge, maxY = hero.flightBottom - edge;
+          if (b.x < minX) { b.x = minX; b.vx = Math.abs(b.vx) * 0.6; }
+          if (b.x > maxX) { b.x = maxX; b.vx = -Math.abs(b.vx) * 0.6; }
+          if (b.y < minY) { b.y = minY; b.vy = Math.abs(b.vy) * 0.6; }
+          if (b.y > maxY) { b.y = maxY; b.vy = -Math.abs(b.vy) * 0.6; }
+        }
         const heading = Math.atan2(b.vy, b.vx) + Math.PI / 2;
         b.heading += Math.atan2(Math.sin(heading - b.heading), Math.cos(heading - b.heading)) * Math.min(1, dt * 5);
-        const screenX = b.x-(b.role==='hero'?heroOriginX:0), screenY = b.y-(b.role==='hero'?heroOriginY:0);
+        const edgePad = b.size * 2 + 8;
+        const cssW = Math.max(1, hero.flightRight - hero.flightLeft + 60);
+        const screenX = Math.max(edgePad, Math.min(cssW - edgePad, b.x - heroOriginX));
+        const screenY = b.y - heroOriginY;
         ctx = b.front ? frontCtx : backCtx;
         ctx.save(); ctx.translate(screenX,screenY); ctx.rotate(b.heading);
         ctx.globalAlpha = b.opacity;
@@ -472,8 +564,14 @@ export function startButterflies(canvas, frontCanvas) {
           (now - b.glideStart) / .16, (b.glideUntil - now) / .16) : 0;
         const fold = flapping * (1 - glideBlend) + .88 * glideBlend;
         const asymmetry = .025 * Math.sin(now * 1.5 + b.phase);
+        // Butterfly-shaped glow: the shadow follows the wing silhouette.
+        // Keep it very subtle (low alpha) and let it breathe slightly with the flap.
+        ctx.shadowColor = b.color + '33';
+        ctx.shadowBlur = 3 + beat * 4;
+        ctx.shadowOffsetY = 0;
         wing(-1, b.size, b.color, fold * (1 + asymmetry), b.shape);
         wing(1, b.size, b.color, fold * (1 - asymmetry), b.shape);
+        ctx.shadowColor = 'transparent'; ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
         ctx.fillStyle = b.bodyColor;
         ctx.beginPath(); ctx.ellipse(0, b.size * .12, b.size * .07, b.size * .4, 0, 0, TAU); ctx.fill();
         ctx.restore();

@@ -43,9 +43,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head />
       <body className="bg-white dark:bg-gray-950 text-black dark:text-white transition-colors duration-300 font-sans antialiased">
+        {/* Apply the saved/system theme before paint so dark mode has no flash. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');var dark=t==='dark'||(t!=='light'&&window.matchMedia('(prefers-color-scheme: dark)').matches);if(dark){document.documentElement.classList.add('dark')}}catch(e){}})()`,
+          }}
+        />
         <ThemeProvider>
           <AccentWords />
           <SarvamExperience />
